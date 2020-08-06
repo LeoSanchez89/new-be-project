@@ -13,11 +13,15 @@ router.get("/", (req, res) => {
 router.get("/:id", (req, res) => {
 	Users.findById(req.params.id)
 		.then((user) => {
-			res.json(user);
+			if (user) {
+				res.json(user);
+			} else {
+				res.status(400).json({
+					message: "User not found",
+				});
+			}
 		})
 		.catch((err) => res.send(err));
 });
-
-
 
 module.exports = router;

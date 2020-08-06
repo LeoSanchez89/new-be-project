@@ -30,7 +30,7 @@ function checkRole(role) {
 		) {
 			next();
 		} else {
-			res.status(403).json({ you: "shall not pass!" });
+			res.status(403).json({ message: "Access Denied" });
 		}
 	};
 }
